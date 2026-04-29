@@ -1,16 +1,59 @@
-# React + Vite
+# Zannatul Naima Prome — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio built to showcase my projects, skills, and experience as a software developer.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+https://zannatulprome.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack
+- React (Vite)
+- Tailwind CSS
+- Framer Motion
+- React Router
 
-## React Compiler
+## ✨ Features
+- Smooth scrolling and section-based navigation
+- Interactive UI with subtle animations
+- Stacked project showcase section
+- Dedicated "All Projects" page
+- Fully responsive design
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📁 Project Structure
+```
+src/
+├── components/
+├── sections/
+├── pages/
+├── assets/
+```
 
-## Expanding the ESLint configuration
+## ⚙️ Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clone the repo:
+
+```bash
+git clone https://github.com/Zprome/zannatulprome.git
+cd zannatulprome
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run locally:
+
+```bash
+npm run dev
+```
+
+## 📦 Deployment
+Deployed on Vercel.
+
+## 📬 Contact
+Feel free to connect or reach out!
+
+---
+
+⭐ If you like this project, consider giving it a star!

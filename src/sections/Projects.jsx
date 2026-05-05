@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
 
 const projects = [
   {
@@ -12,14 +13,15 @@ const projects = [
     demo: "#",
   },
   {
-    title: "StayScout",
-    type: "Data Visualization",
+    title: "DAF Tightening Performance Dashboard",
+    type: "Business Intelligence",
     description:
-      "A dashboard-style project for exploring travel stays by price, rating, and location.",
-    tech: ["Qlik Sense", "Data Visualization"],
-    caseStudy: "/projects/stayscout",
-    demo: "#",
-  },
+        "A Qlik Sense dashboard analyzing tightening performance, tool stability, and failure patterns to support preventive maintenance decisions.",
+    tech: ["Qlik Sense", "Business Intelligence", "Data Analysis"],
+    caseStudy: "/projects/daf-dashboard",
+    demo: "https://youtu.be/JU--K3YxSfg",
+    image: dafPreview,
+},
   {
     title: "Web Scraping",
     type: "Data Science",
@@ -138,19 +140,30 @@ export default function Projects() {
 
                 <div className="absolute inset-0 opacity-[0.055] [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:64px_64px]" />
 
-                <ProjectMockup title={project.title} index={index} />
+                {project.image ? (
+                    <div className="pointer-events-none absolute right-6 top-10 hidden h-[72%] w-[52%] overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#09090B]/70 p-3 shadow-2xl backdrop-blur-md lg:block">
+                        <img
+                        src={project.image}
+                        alt={`${project.title} preview`}
+                        className="h-full w-full rounded-[1.25rem] object-cover opacity-80 transition duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
+                    </div>
+                    ) : (
+                    <ProjectMockup title={project.title} index={index} />
+                )}
 
                 <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/58 to-black/20" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
 
-                <div className="relative z-10 flex h-full flex-col justify-between py-4 p-8 md:p-12">
+                <div className="relative z-10 flex h-full flex-col justify-between p-10 md:p-12">
                   <div>
                     <p className="mb-5 text-xs uppercase tracking-[0.35em] text-[#C6A972]">
                       {project.type}
                     </p>
 
-                    <h3 className="mb-5 max-w-xl text-4xl font-semibold leading-tight text-[#F5F1E8] md:text-6xl">
-                      {project.title}
+                    <h3 className="mb-5 max-w-2xl text-4xl font-semibold leading-tight text-[#F5F1E8] md:text-5xl">
+                        {project.title}
                     </h3>
 
                     <p className="max-w-xl text-base leading-relaxed text-white/62 md:text-lg">
@@ -163,27 +176,33 @@ export default function Projects() {
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-full border border-white/15 bg-white/[0.07] px-4 py-2 text-xs text-white/75 backdrop-blur-md"
+                          className="group relative overflow-hidden rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-xs text-white/70 backdrop-blur-md transition-all duration-300 hover:-translate-y-[2px] hover:border-[#C6A972]/40 hover:text-[#F5F1E8]"
                         >
-                          {tech}
+                          {/* subtle glow */}
+                          <span className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_50%,rgba(198,169,114,0.25),transparent_70%)]" />
+                          
+                          {/* text */}
+                          <span className="relative z-10">{tech}</span>
                         </span>
                       ))}
                     </div>
 
                     <div className="flex flex-wrap items-center gap-4">
-                      <a
-                        href={project.caseStudy}
-                        className="rounded-full bg-[#C6A972] px-6 py-3 text-sm font-medium text-[#09090B] transition duration-300 hover:scale-105 hover:bg-[#D8BD82]"
-                      >
-                        View Case Study →
-                      </a>
+                        <Link
+                            to={project.caseStudy}
+                            className="rounded-full bg-[#C6A972] px-6 py-3 text-sm font-medium text-[#09090B] transition duration-300 hover:scale-105 hover:bg-[#D8BD82]"
+                        >
+                            View Details →
+                        </Link>
 
-                      <a
-                        href={project.demo}
-                        className="text-sm text-white/60 transition hover:text-[#F5F1E8]"
-                      >
-                        Live Demo ↗
-                      </a>
+                        <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-white/60 transition hover:text-[#F5F1E8]"
+                        >
+                            Live Demo ↗
+                        </a>
                     </div>
                   </div>
                 </div>

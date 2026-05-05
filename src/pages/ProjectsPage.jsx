@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
+
+
 const allProjects = [
   {
     title: "EduQuest",
@@ -9,14 +13,15 @@ const allProjects = [
     demo: "#",
   },
   {
-    title: "StayScout",
-    type: "Individual Project",
+    title: "DAF Tightening Performance Dashboard",
+    type: "Business Intelligence",
     description:
-      "A data visualization project for exploring travel stays by price, rating, and location.",
-    tech: ["Qlik Sense", "Data Visualization"],
-    details: "/projects/stayscout",
-    demo: "#",
-  },
+        "A Qlik Sense dashboard analyzing tightening performance, tool stability, and failure patterns to support preventive maintenance decisions.",
+    tech: ["Qlik Sense", "Replit", "Business Intelligence", "Data Analysis"],
+    details: "/projects/daf-dashboard",
+    demo: "https://youtu.be/JU--K3YxSfg",
+    image: dafPreview,
+},
   {
     title: "Web Scraping",
     type: "Individual Project",
@@ -37,7 +42,21 @@ const allProjects = [
   },
 ];
 
-function ProjectPreview() {
+function ProjectPreview({ image, title }) {
+  if (image) {
+    return (
+      <div className="relative h-56 overflow-hidden rounded-2xl border border-white/10 bg-[#0B0B0E]">
+        <img
+          src={image}
+          alt={`${title} preview`}
+          className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />
+      </div>
+    );
+  }
+
+  // mockup preview for projects without images
   return (
     <div className="relative h-56 overflow-hidden rounded-2xl border border-white/10 bg-[#0B0B0E]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(198,169,114,0.22),transparent_35%),linear-gradient(135deg,#17130E,#07070A)]" />
@@ -70,14 +89,14 @@ function ProjectPreview() {
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-[#09090B] px-6 py-28 text-[#F5F1E8] md:px-12 lg:px-20">
+    <main className="min-h-screen px-6 py-28 text-[#F5F1E8] md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
-        <a
-          href="/"
-          className="mb-14 inline-flex text-sm text-white/50 transition hover:text-[#C6A972]"
-        >
-          ← Back to home
-        </a>
+        <Link
+            to="/"
+            className="mb-14 inline-flex text-sm text-white/50 transition hover:text-[#C6A972]"
+            >
+            ← Back to home
+        </Link>
 
         <section className="mb-20">
           <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#C6A972]">
@@ -100,7 +119,7 @@ export default function ProjectsPage() {
               key={project.title}
               className="group rounded-[2rem] border border-white/10 bg-[#111114]/80 p-5 shadow-2xl transition duration-500 hover:-translate-y-2 hover:border-[#C6A972]/30"
             >
-              <ProjectPreview />
+              <ProjectPreview image={project.image} title={project.title} />
 
               <div className="pt-6">
                 <p className="mb-3 text-xs uppercase tracking-[0.25em] text-[#C6A972]/80">
@@ -127,17 +146,19 @@ export default function ProjectsPage() {
                 </div>
 
                 <div className="flex items-center gap-5">
-                  <a
-                    href={project.details}
+                  <Link
+                    to={project.details}
                     className="text-sm text-[#C6A972] transition group-hover:translate-x-1"
-                  >
+                    >
                     View Details →
-                  </a>
+                  </Link>
 
                   <a
                     href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-white/45 transition hover:text-white"
-                  >
+                    >
                     Live Demo ↗
                   </a>
                 </div>

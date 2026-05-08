@@ -10,6 +10,7 @@ import Projects from "./sections/Projects";
 import ProjectsPage from "./pages/ProjectsPage";
 
 import BusinessIntelligenceProject from "./pages/BusinessIntelligenceProject";
+import GrowKasterleeProject from "./pages/Skill2-GrowKasterleeProject";
 
 
 function Home() {
@@ -40,6 +41,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/daf-dashboard" element={<BusinessIntelligenceProject />} />
+          <Route path="/projects/growkasterlee" element={<GrowKasterleeProject />} />
+          
         </Routes>
       </div>
     </main>

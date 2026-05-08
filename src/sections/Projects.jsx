@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
+import growPreview from "../assets/projects/Skill2-GrowKasterlee/GK0.png";
 
 const projects = [
   {
-    title: "EduQuest",
+    title: "airbnb",
     type: "Team Project",
     description:
       "A full-stack platform for managing student training workflows, team formation, and collaboration.",
@@ -17,19 +18,21 @@ const projects = [
     type: "Business Intelligence",
     description:
         "A Qlik Sense dashboard analyzing tightening performance, tool stability, and failure patterns to support preventive maintenance decisions.",
-    tech: ["Qlik Sense", "Business Intelligence", "Data Analysis"],
+    tech: ["Qlik Sense", "Replit", "Business Intelligence", "Data Analysis"],
     caseStudy: "/projects/daf-dashboard",
     demo: "https://youtu.be/JU--K3YxSfg",
     image: dafPreview,
-},
+  },
   {
-    title: "Web Scraping",
-    type: "Data Science",
-    description:
-      "A project focused on extracting, cleaning, and analyzing structured web data.",
-    tech: ["Python", "BeautifulSoup", "Selenium"],
-    caseStudy: "/projects/web-scraping",
-    demo: "#",
+  title: "GrowKasterlee",
+  type: "Skills Lab 2 Project",
+  subtitle: "Team Project",
+  description:
+    "A full-stack fitness management platform with multi-role scheduling, session booking, progress tracking, and automated reminders.",
+  tech: ["Laravel", "Livewire", "Blade", "MySQL"],
+  caseStudy: "/projects/growkasterlee",
+  demo: "https://www.growkasterlee.liam-tm.be/",
+  image: growPreview,
   },
 ];
 
@@ -141,13 +144,28 @@ export default function Projects() {
                 <div className="absolute inset-0 opacity-[0.055] [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:64px_64px]" />
 
                 {project.image ? (
-                    <div className="pointer-events-none absolute right-6 top-10 hidden h-[72%] w-[52%] overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#09090B]/70 p-3 shadow-2xl backdrop-blur-md lg:block">
+                    <div className={`pointer-events-none absolute right-6 hidden overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#09090B]/70 p-3 shadow-2xl backdrop-blur-md lg:block ${
+                      project.title === "GrowKasterlee"
+                        ? "top-8 h-[76%] w-[56%]"
+                        : "top-10 h-[72%] w-[52%]"
+                    }`}
+                    >
                         <img
                         src={project.image}
                         alt={`${project.title} preview`}
-                        className="h-full w-full rounded-[1.25rem] object-cover opacity-80 transition duration-700 group-hover:scale-105"
+                        className={`h-full w-full rounded-[1.25rem] transition duration-700 group-hover:scale-105 ${
+                          project.title === "GrowKasterlee"
+                            ? "object-cover object-top opacity-100 brightness-110"
+                            : "object-cover opacity-80"
+                          }`}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
+                        <div
+                          className={`absolute inset-0 ${
+                            project.title === "GrowKasterlee"
+                              ? "bg-gradient-to-t from-black/5 via-transparent to-transparent"
+                              : "bg-gradient-to-t from-black/45 via-transparent to-black/10"
+                          }`}
+                        />
                     </div>
                     ) : (
                     <ProjectMockup title={project.title} index={index} />
@@ -162,9 +180,15 @@ export default function Projects() {
                       {project.type}
                     </p>
 
-                    <h3 className="mb-5 max-w-2xl text-4xl font-semibold leading-tight text-[#F5F1E8] md:text-5xl">
-                        {project.title}
+                    <h3 className="mb-3 max-w-2xl text-4xl font-semibold leading-tight text-[#F5F1E8] md:text-5xl">
+                      {project.title}
                     </h3>
+
+                    {project.subtitle && (
+                      <p className="mb-5 text-sm font-medium text-[#C6A972]/80">
+                        {project.subtitle}
+                      </p>
+                    )}
 
                     <p className="max-w-xl text-base leading-relaxed text-white/62 md:text-lg">
                       {project.description}

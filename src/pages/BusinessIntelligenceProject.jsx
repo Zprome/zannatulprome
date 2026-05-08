@@ -55,7 +55,7 @@ export default function BusinessIntelligenceProject() {
         </Link>
 
         {/* Premium Hero */}
-        <section className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <section className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             
           {/* Left Content */}
           <div>
@@ -102,31 +102,34 @@ export default function BusinessIntelligenceProject() {
           </div>
 
           {/* Right Carousel */}
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#101013] p-3 shadow-[0_40px_120px_rgba(0,0,0,0.6)]">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#101013] p-2 shadow-[0_40px_120px_rgba(0,0,0,0.6)]">
 
             {/* glow effect */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(198,169,114,0.15),transparent_40%)]" />
 
         
-            <div className="relative overflow-hidden rounded-[1.5rem] bg-black">
-              <img
-                src={images[current]}
-                alt="DAF dashboard preview"
-                className="h-[400px] w-full object-cover opacity-90 transition duration-700"
-              />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0A0A0C] p-0 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+  
+              <div className="flex h-[300px] items-center justify-center">
+                <img
+                  src={images[current]}
+                  alt="DAF dashboard preview"
+                  className="max-h-full w-full rounded-[1.5rem] object-contain opacity-100 transition duration-700"
+                />
+              </div>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
 
               <button
                 onClick={previousImage}
-                className="absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/45 text-2xl text-white/80 backdrop-blur-md transition hover:bg-black/70 hover:text-[#C6A972]"
+                className="absolute left-4 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/45 text-2xl text-white/80 backdrop-blur-md transition hover:bg-black/70 hover:text-[#C6A972]"
               >
                 ‹
               </button>
 
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/45 text-2xl text-white/80 backdrop-blur-md transition hover:bg-black/70 hover:text-[#C6A972]"
+                className="absolute right-4 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/45 text-2xl text-white/80 backdrop-blur-md transition hover:bg-black/70 hover:text-[#C6A972]"
               >
                 ›
               </button>
@@ -206,6 +209,11 @@ export default function BusinessIntelligenceProject() {
 
         </div>
         </motion.section>
+
+
+        <div className="my-24 flex justify-center">
+            <div className="h-px w-32 bg-gradient-to-r from-transparent via-[#C6A972] to-transparent opacity-80 shadow-[0_0_12px_rgba(198,169,114,0.35)]" />
+        </div>
 
 
 
@@ -337,6 +345,11 @@ export default function BusinessIntelligenceProject() {
         </motion.section>
 
 
+        <div className="my-24 flex justify-center">
+            <div className="h-px w-32 bg-gradient-to-r from-transparent via-[#C6A972] to-transparent opacity-80 shadow-[0_0_12px_rgba(198,169,114,0.35)]" />
+        </div>
+
+
 
         {/* Process / Data Journal */}
         <motion.section
@@ -459,7 +472,7 @@ export default function BusinessIntelligenceProject() {
 
         <p className="leading-relaxed text-white/60">
             I developed this project end-to-end, starting from raw data exploration in
-            Replit, documenting findings through a data journal, and translating those
+            Qlik Sense, documenting findings through a data journal in Replit, and translating those
             insights into a Qlik Sense dashboard.
         </p>
 

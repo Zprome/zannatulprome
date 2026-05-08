@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
+import growPreview from "../assets/projects/Skill2-GrowKasterlee/GK0.png";
 
 
 const allProjects = [
   {
-    title: "EduQuest",
+    title: "airbnb",
     type: "Team Project",
     description:
       "A full-stack platform for managing student training workflows, team formation, submissions, and collaboration.",
@@ -21,15 +22,16 @@ const allProjects = [
     details: "/projects/daf-dashboard",
     demo: "https://youtu.be/JU--K3YxSfg",
     image: dafPreview,
-},
+  },
   {
-    title: "Web Scraping",
-    type: "Individual Project",
-    description:
-      "A data science project focused on extracting, cleaning, and analyzing structured web data.",
-    tech: ["Python", "BeautifulSoup", "Selenium"],
-    details: "/projects/web-scraping",
-    demo: "#",
+  title: "GrowKasterlee",
+  type: "Skills Lab 2 Project",
+  description:
+    "A full-stack fitness management platform with multi-role scheduling, session booking, progress tracking, and automated reminders.",
+  tech: ["Laravel", "Livewire", "Blade", "MySQL"],
+  details: "/projects/growkasterlee",
+  demo: "https://www.growkasterlee.liam-tm.be/",
+  image: growPreview,
   },
   {
     title: "Portfolio Website",
@@ -49,7 +51,9 @@ function ProjectPreview({ image, title }) {
         <img
           src={image}
           alt={`${title} preview`}
-          className="h-full w-full object-cover opacity-80 transition duration-700 group-hover:scale-105"
+          className={`h-full w-full object-cover transition duration-700 group-hover:scale-105 ${
+            title === "GrowKasterlee" ? "object-top opacity-95 brightness-110" : "opacity-80"
+          }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />
       </div>
@@ -138,9 +142,15 @@ export default function ProjectsPage() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white/65"
+                      className="group relative overflow-hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white/65 transition-all duration-300 hover:-translate-y-[2px] hover:border-[#C6A972]/40 hover:text-[#F5F1E8]"
                     >
-                      {tech}
+                      {/* glow */}
+                      <span className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_50%,rgba(198,169,114,0.18),transparent_70%)]" />
+
+                      {/* text */}
+                      <span className="relative z-10">
+                        {tech}
+                      </span>
                     </span>
                   ))}
                 </div>

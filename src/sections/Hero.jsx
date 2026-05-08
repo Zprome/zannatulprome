@@ -121,16 +121,17 @@ function Hero() {
           >
             <a
               href="#projects"
-              className="rounded-full border border-[#C6A972]/35 bg-[#C6A972]/10 px-6 py-3 text-sm font-medium text-[#F8F5EE] transition duration-300 hover:-translate-y-0.5 hover:bg-[#C6A972] hover:text-[#09090B]"
+              className="rounded-full border border-[#C6A972]/35 bg-[#C6A972]/10 px-8 py-4 text-sm font-medium text-[#F8F5EE] transition duration-300 hover:-translate-y-0.5 hover:bg-[#C6A972] hover:text-[#09090B]"
             >
               View Projects
             </a>
 
             <a
-              href="#contact"
-              className="rounded-full border border-[#2A2A31] bg-[#111113] px-6 py-3 text-sm font-medium text-[#F8F5EE] transition duration-300 hover:-translate-y-0.5 hover:border-[#C6A972]/40 hover:text-[#E3CFA4]"
+              href="/Zannatul-Naima-Prome-CV.pdf"
+              download
+              className="rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 text-sm font-medium text-white/70 transition hover:-translate-y-0.5 hover:border-[#C6A972] hover:bg-[#C6A972] hover:text-[#09090B]"
             >
-              Contact Me
+              Download CV
             </a>
           </motion.div>
         </div>

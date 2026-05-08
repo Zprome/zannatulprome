@@ -20,7 +20,7 @@ function Navbar() {
               Zannatul Naima Prome
             </p>
             <p className="text-[10px] uppercase tracking-[0.32em] text-[#AFA89B]">
-              Software Portfolio
+              Personal Portfolio
             </p>
           </div>
         </a>

@@ -7,6 +7,8 @@ import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Skills from "./sections/Skills";
 import Projects from "./sections/Projects";
+import Footer from "./sections/Footer";
+
 import ProjectsPage from "./pages/ProjectsPage";
 
 import BusinessIntelligenceProject from "./pages/BusinessIntelligenceProject";
@@ -20,6 +22,7 @@ function Home() {
       <About />
       <Skills />
       <Projects />
+      <Footer />
     </>
   );
 }

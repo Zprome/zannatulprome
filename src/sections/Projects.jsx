@@ -1,17 +1,20 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import bookPreview from "../assets/projects/WebDevelopment/BB0.png";
 import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
 import growPreview from "../assets/projects/Skill2-GrowKasterlee/GK0.png";
 
 const projects = [
   {
-    title: "airbnb",
-    type: "Team Project",
-    description:
-      "A full-stack platform for managing student training workflows, team formation, and collaboration.",
-    tech: ["Laravel", "Tailwind", "Livewire"],
-    caseStudy: "/projects/eduquest",
-    demo: "#",
+  title: "Book-A-Bite",
+  type: "Web Development",
+  subtitle: "Restaurant Management System",
+  description:
+    "A full-stack restaurant management application with food ordering, table bookings, user accounts, admin management, analytics, CSV export, and role-based access control.",
+  tech: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"],
+  caseStudy: "/projects/book-a-bite",
+  demo: "#",
+  image: bookPreview,
   },
   {
     title: "DAF Tightening Performance Dashboard",
@@ -91,7 +94,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-visible px-6 py-32 md:px-12 lg:px-20"
+      className="relative overflow-visible px-6 pt-36 pb-32 md:px-12 lg:px-20"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(198,169,114,0.08),transparent_35%)]" />
 
@@ -101,19 +104,25 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-24 max-w-3xl"
+          className="mb-24 max-w-4xl"
         >
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#C6A972]">
-            Selected Work
-          </p>
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#C6A972]/20 bg-[#C6A972]/5 px-5 py-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C6A972]" />
+            <p className="text-xs uppercase tracking-[0.35em] text-[#C6A972]">
+              Featured Projects
+            </p>
+          </div>
 
-          <h2 className="mb-6 text-4xl font-semibold leading-tight text-[#F5F1E8] md:text-6xl">
-            Projects that prove how I build.
+          <h2 className="mb-6 text-4xl font-semibold leading-tight text-[#F5F1E8] md:text-5xl">
+            Building systems,
+            <br />
+            not just interfaces.
           </h2>
 
-          <p className="max-w-2xl text-base leading-relaxed text-white/55">
-            A visual showcase of projects focused on structure, interaction,
-            thoughtful UI, and real-world functionality.
+          <p className="max-w-2xl text-base leading-relaxed text-white/55 md:text-lg">
+            A curated collection of projects exploring modern development,
+            interactive experiences, scalable systems, and real-world problem
+            solving.
           </p>
         </motion.div>
 
@@ -145,7 +154,7 @@ export default function Projects() {
 
                 {project.image ? (
                     <div className={`pointer-events-none absolute right-6 hidden overflow-hidden rounded-[1.7rem] border border-white/10 bg-[#09090B]/70 p-3 shadow-2xl backdrop-blur-md lg:block ${
-                      project.title === "GrowKasterlee"
+                      project.title === "GrowKasterlee" || project.title === "Book-A-Bite"
                         ? "top-8 h-[76%] w-[56%]"
                         : "top-10 h-[72%] w-[52%]"
                     }`}
@@ -154,14 +163,14 @@ export default function Projects() {
                         src={project.image}
                         alt={`${project.title} preview`}
                         className={`h-full w-full rounded-[1.25rem] transition duration-700 group-hover:scale-105 ${
-                          project.title === "GrowKasterlee"
+                          project.title === "GrowKasterlee" || project.title === "Book-A-Bite"
                             ? "object-cover object-top opacity-100 brightness-110"
                             : "object-cover opacity-80"
                           }`}
                         />
                         <div
                           className={`absolute inset-0 ${
-                            project.title === "GrowKasterlee"
+                            project.title === "GrowKasterlee" || project.title === "Book-A-Bite"
                               ? "bg-gradient-to-t from-black/5 via-transparent to-transparent"
                               : "bg-gradient-to-t from-black/45 via-transparent to-black/10"
                           }`}
@@ -171,7 +180,13 @@ export default function Projects() {
                     <ProjectMockup title={project.title} index={index} />
                 )}
 
-                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/58 to-black/20" />
+                <div
+                  className={`absolute inset-0 ${
+                    project.title === "Book-A-Bite"
+                      ? "bg-gradient-to-r from-black via-black/72 to-transparent"
+                      : "bg-gradient-to-r from-black/85 via-black/58 to-black/20"
+                  }`}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
 
                 <div className="relative z-10 flex h-full flex-col justify-between p-10 md:p-12">
@@ -238,18 +253,26 @@ export default function Projects() {
         </div>
 
         <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="mt-16 text-center"
-            >
-            <Link
-                to="/projects"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-6 py-3 text-sm text-white/55 transition hover:border-[#C6A972]/30 hover:text-[#C6A972]"
-                >
-                View all projects →
-            </Link>
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mt-20 flex justify-center"
+        >
+          <Link
+            to="/projects"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full border border-[#C6A972]/20 bg-[#C6A972]/5 px-8 py-4 text-sm font-medium text-[#F5F1E8] transition-all duration-300 hover:scale-105 hover:border-[#C6A972] hover:bg-[#C6A972] hover:text-[#09090B]"
+          >
+            <span className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_50%,rgba(198,169,114,0.18),transparent_70%)]" />
+
+            <span className="relative z-10 tracking-wide">
+              View all projects
+            </span>
+
+            <span className="relative z-10 transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
         </motion.div>
       </div>
     </section>

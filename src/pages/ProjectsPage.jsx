@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
+import bookPreview from "../assets/projects/WebDevelopment/BB1.png";
 import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
 import growPreview from "../assets/projects/Skill2-GrowKasterlee/GK0.png";
 
 
 const allProjects = [
   {
-    title: "airbnb",
-    type: "Team Project",
-    description:
-      "A full-stack platform for managing student training workflows, team formation, submissions, and collaboration.",
-    tech: ["Laravel", "Tailwind", "Livewire"],
-    details: "/projects/eduquest",
-    demo: "#",
+  title: "Book-A-Bite",
+  type: "Web Development",
+  description:
+    "A full-stack restaurant management application with food ordering, table bookings, user accounts, admin management, analytics, CSV export, and role-based access control.",
+  tech: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"],
+  details: "/projects/book-a-bite",
+  demo: "#",
+  image: bookPreview,
   },
   {
     title: "DAF Tightening Performance Dashboard",
@@ -52,7 +54,9 @@ function ProjectPreview({ image, title }) {
           src={image}
           alt={`${title} preview`}
           className={`h-full w-full object-cover transition duration-700 group-hover:scale-105 ${
-            title === "GrowKasterlee" ? "object-top opacity-95 brightness-110" : "opacity-80"
+            title === "GrowKasterlee" || title === "Book-A-Bite"
+              ? "object-top opacity-95 brightness-110 contrast-105"
+              : "opacity-80"
           }`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />

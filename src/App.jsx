@@ -11,6 +11,7 @@ import Footer from "./sections/Footer";
 
 import ProjectsPage from "./pages/ProjectsPage";
 
+import WebDevelopmentProject from "./pages/WebDevelopmentProject";
 import BusinessIntelligenceProject from "./pages/BusinessIntelligenceProject";
 import GrowKasterleeProject from "./pages/Skill2-GrowKasterleeProject";
 
@@ -43,6 +44,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/projects/book-a-bite" element={<WebDevelopmentProject />} />
           <Route path="/projects/daf-dashboard" element={<BusinessIntelligenceProject />} />
           <Route path="/projects/growkasterlee" element={<GrowKasterleeProject />} />
           

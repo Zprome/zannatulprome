@@ -94,7 +94,7 @@ export default function BusinessIntelligenceProject() {
                 rel="noopener noreferrer"
                 className="rounded-full bg-[#C6A972] px-6 py-3 text-sm font-medium text-[#09090B] transition duration-300 hover:scale-105 hover:bg-[#D8BD82] hover:shadow-[0_10px_30px_rgba(198,169,114,0.3)]"
               >
-                Watch Demo →
+                Watch Video →
               </a>
 
               

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import bookPreview from "../assets/projects/WebDevelopment/BB1.png";
 import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
 import growPreview from "../assets/projects/Skill2-GrowKasterlee/GK0.png";
+import airbnbPreview from "../assets/projects/Data-Visualisation/air0.png";
 
 
 const allProjects = [
@@ -26,7 +27,7 @@ const allProjects = [
     image: dafPreview,
   },
   {
-  title: "GrowKasterlee",
+  title: "Grow Kasterlee",
   type: "Skills Lab 2 Project",
   description:
     "A full-stack fitness management platform with multi-role scheduling, session booking, progress tracking, and automated reminders.",
@@ -36,13 +37,14 @@ const allProjects = [
   image: growPreview,
   },
   {
-    title: "Portfolio Website",
-    type: "Personal Project",
-    description:
-      "A premium portfolio website focused on visual polish, clean interactions, and strong presentation.",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    details: "/projects/portfolio",
-    demo: "#",
+  title: "Airbnb Analytics & Insights Dashboard",
+  type: "Data Analytics & Visualization",
+  description:
+    "A Qlik Sense dashboard exploring Airbnb pricing, booking trends, guest satisfaction, and host performance across major Belgian cities.",
+  tech: ["Qlik Sense", "Data Visualization", "Data Analytics", "Interactive Dashboards"],
+  details: "/projects/airbnb-dashboard",
+  demo: "https://youtu.be/h_lOkrqv4Qc",
+  image: airbnbPreview,
   },
 ];
 

@@ -14,6 +14,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import WebDevelopmentProject from "./pages/WebDevelopmentProject";
 import BusinessIntelligenceProject from "./pages/BusinessIntelligenceProject";
 import GrowKasterleeProject from "./pages/Skill2-GrowKasterleeProject";
+import DataVisualisationProject from "./pages/DataVisualisationProject";
 
 
 function Home() {
@@ -47,6 +48,7 @@ function App() {
           <Route path="/projects/book-a-bite" element={<WebDevelopmentProject />} />
           <Route path="/projects/daf-dashboard" element={<BusinessIntelligenceProject />} />
           <Route path="/projects/growkasterlee" element={<GrowKasterleeProject />} />
+          <Route path="/projects/airbnb-dashboard" element={<DataVisualisationProject />} />
           
         </Routes>
       </div>

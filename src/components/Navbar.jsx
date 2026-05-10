@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/prome-logo.png";
 
 function Navbar() {
-  const navItems = ["About", "Skills", "Projects", "Experience", "Contact"];
+  const navItems = ["About", "Skills", "Projects", "Experience", "CV"];
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -26,22 +27,32 @@ function Navbar() {
         </a>
 
         <div className="hidden items-center gap-7 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-sm font-medium text-[#C7BFB1] transition duration-300 hover:text-[#F8F5EE]"
-            >
-              {item}
-            </a>
-          ))}
+          {navItems.map((item) =>
+            item === "CV" ? (
+              <Link
+                key={item}
+                to="/cv"
+                className="text-sm font-medium text-[#C7BFB1] transition duration-300 hover:text-[#F8F5EE]"
+              >
+                {item}
+              </Link>
+            ) : (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-sm font-medium text-[#C7BFB1] transition duration-300 hover:text-[#F8F5EE]"
+              >
+                {item}
+              </a>
+            )
+          )}
         </div>
 
         <a
           href="#contact"
           className="rounded-full border border-[#C6A972]/35 bg-[#C6A972]/10 px-5 py-2.5 text-sm font-medium text-[#F8F5EE] transition duration-300 hover:-translate-y-0.5 hover:bg-[#C6A972] hover:text-[#09090B]"
         >
-          Let&apos;s Talk
+          Contact
         </a>
       </nav>
     </header>

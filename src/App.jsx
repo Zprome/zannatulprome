@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import CursorGlow from "./components/ui/CursorGlow";
+import CVPage from "./pages/CVPage";
 
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -15,6 +16,7 @@ import WebDevelopmentProject from "./pages/WebDevelopmentProject";
 import BusinessIntelligenceProject from "./pages/BusinessIntelligenceProject";
 import GrowKasterleeProject from "./pages/Skill2-GrowKasterleeProject";
 import DataVisualisationProject from "./pages/DataVisualisationProject";
+import Skill2AndersonsProject from "./pages/Skill2-AndersonsProject";
 
 
 function Home() {
@@ -44,11 +46,13 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/cv" element={<CVPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/book-a-bite" element={<WebDevelopmentProject />} />
           <Route path="/projects/daf-dashboard" element={<BusinessIntelligenceProject />} />
           <Route path="/projects/growkasterlee" element={<GrowKasterleeProject />} />
           <Route path="/projects/airbnb-dashboard" element={<DataVisualisationProject />} />
+          <Route path="/projects/anderson-household-system" element={<Skill2AndersonsProject />} />
           
         </Routes>
       </div>

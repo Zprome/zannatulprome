@@ -3,6 +3,7 @@ import bookPreview from "../assets/projects/WebDevelopment/BB1.png";
 import dafPreview from "../assets/projects/business-intelligence/DAF0.jpg";
 import growPreview from "../assets/projects/Skill2-GrowKasterlee/GK0.png";
 import airbnbPreview from "../assets/projects/Data-Visualisation/air0.png";
+import andersonPreview from "../assets/projects/Skill2-Andersons/AH0.png";
 
 
 const allProjects = [
@@ -28,7 +29,7 @@ const allProjects = [
   },
   {
   title: "Grow Kasterlee",
-  type: "Skills Lab 2 Project",
+  type: "Skills Integration Lab 2",
   description:
     "A full-stack fitness management platform with multi-role scheduling, session booking, progress tracking, and automated reminders.",
   tech: ["Laravel", "Livewire", "Blade", "MySQL"],
@@ -46,53 +47,34 @@ const allProjects = [
   demo: "https://youtu.be/h_lOkrqv4Qc",
   image: airbnbPreview,
   },
+  {
+  title: "Anderson Household System",
+  type: "Skills Integration Lab 2",
+  description:
+    "A collaborative system analysis and Figma UX prototype project focused on role-based household workflows, scheduling, and administrative coordination.",
+  tech: ["Figma", "UML", "Use Case Diagrams", "UX Design"],
+  details: "/projects/anderson-household-system",
+  demo: "#",
+  image: andersonPreview,
+  },
 ];
 
 function ProjectPreview({ image, title }) {
-  if (image) {
-    return (
-      <div className="relative h-56 overflow-hidden rounded-2xl border border-white/10 bg-[#0B0B0E]">
-        <img
-          src={image}
-          alt={`${title} preview`}
-          className={`h-full w-full object-cover transition duration-700 group-hover:scale-105 ${
-            title === "GrowKasterlee" || title === "Book-A-Bite"
-              ? "object-top opacity-95 brightness-110 contrast-105"
-              : "opacity-80"
-          }`}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />
-      </div>
-    );
-  }
-
-  // mockup preview for projects without images
   return (
     <div className="relative h-56 overflow-hidden rounded-2xl border border-white/10 bg-[#0B0B0E]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,rgba(198,169,114,0.22),transparent_35%),linear-gradient(135deg,#17130E,#07070A)]" />
-      <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:48px_48px]" />
+      <img
+        src={image}
+        alt={`${title} preview`}
+        className={`h-full w-full object-cover transition duration-700 group-hover:scale-105 ${
+          title === "GrowKasterlee" ||
+          title === "Book-A-Bite" ||
+          title === "Anderson Household System"
+            ? "object-top opacity-95 brightness-110 contrast-105"
+            : "opacity-80"
+        }`}
+      />
 
-      <div className="relative m-5 h-[calc(100%-40px)] rounded-xl border border-white/10 bg-white/[0.035] p-4">
-        <div className="mb-4 flex gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-        </div>
-
-        <div className="grid h-[120px] grid-cols-12 gap-3">
-          <div className="col-span-4 rounded-xl bg-black/25" />
-          <div className="col-span-8 space-y-3 rounded-xl bg-black/25 p-4">
-            <div className="h-3 w-28 rounded-full bg-[#C6A972]/35" />
-            <div className="h-2 w-full rounded-full bg-white/10" />
-            <div className="h-2 w-2/3 rounded-full bg-white/10" />
-            <div className="grid grid-cols-3 gap-2 pt-2">
-              <div className="h-10 rounded-lg bg-white/[0.06]" />
-              <div className="h-10 rounded-lg bg-white/[0.06]" />
-              <div className="h-10 rounded-lg bg-white/[0.06]" />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/20" />
     </div>
   );
 }
@@ -108,20 +90,21 @@ export default function ProjectsPage() {
             ← Back to home
         </Link>
 
-        <section className="mb-20">
-          <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#C6A972]">
-            Project Archive
+        <section className="mb-16 max-w-4xl">
+          <p className="mb-5 text-xs uppercase tracking-[0.38em] text-[#C6A972]">
+            My Work
           </p>
 
-          <h1 className="mb-6 text-4xl font-semibold leading-tight md:text-6xl">
+          <h1 className="mb-5 text-5xl font-semibold leading-tight md:text-5xl">
             All Projects
           </h1>
 
-          <p className="max-w-2xl text-white/55">
-            A complete collection of projects I’ve built across web development,
-            data visualization, and software engineering.
+          <p className="max-w-2xl text-base leading-relaxed text-white/55">
+            A growing collection of projects built through curiosity, problem-solving,
+            and hands-on exploration across different areas of computer science.
           </p>
         </section>
+
 
         <section className="grid gap-8 md:grid-cols-2">
           {allProjects.map((project) => (
@@ -169,14 +152,16 @@ export default function ProjectsPage() {
                     View Details →
                   </Link>
 
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-white/45 transition hover:text-white"
+                  {project.demo !== "#" && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/45 transition hover:text-white"
                     >
-                    Live Demo ↗
-                  </a>
+                      Live Demo ↗
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
